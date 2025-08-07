@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HOT Figma Layout Mockup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0; 
+      padding: 0;
+      background: #181818;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 100vw;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 40px;
+    }
+    /* Top logo section */
+    .logo-section {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .logo-hot {
+      font-size: 3.5rem;
+      letter-spacing: 0.1em;
+      font-weight: bold;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo-hot span.orange {
+      color: #ff6d2e;
+      font-size: 1.8rem;
+      font-weight: normal;
+      margin-top: -12px;
+    }
+    /* "Hat" icon as a simplified SVG */
+    .logo-icon {
+      margin-bottom: -20px;
+    }
+
+    /* Main layout: left grid & right tall stack */
+    .layout {
+      position: absolute;
+      top: 180px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 70px;
+      width: 92vw;
+    }
+
+    /* Left flex grid of cards */
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 110px);
+      grid-template-rows: repeat(6, 88px);
+      gap: 18px;
+      /* Custom position with margin since the grid is not full rectangular */
+      margin-right: 40px;
+      position: relative;
+      min-width: 930px;
+    }
+
+    /* Blank tiles for "empty" spaces */
+    .blank { visibility: hidden; }
+
+    /* Card/screen placeholder */
+    .grid-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 9px 0 rgba(0,0,0,.13);
+      min-width: 106px;
+      min-height: 82px;
+      max-width: 110px;
+      max-height: 88px;
+      border: 1px solid #eee;
+    }
+
+    /* Make some cards visually "stand out" like in screenshot */
+    .grid-card.logo-card {
+      grid-column: 2 / span 2;
+      grid-row: 1 / 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .95rem;
+      font-weight: bold;
+      color: #ff6d2e;
+      letter-spacing: 2px;
+    }
+    .grid-card.large {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 185px;
+      max-height: 196px;
+    }
+
+    /* Tall vertical right stack */
+    .tall-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stack-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .stack-card {
+      background: #fff;
+      border-radius: 6px;
+      width: 90px;
+      height: 28px;
+      border: 1px solid #eee;
+      margin-left: 8px;
+    }
+    /* Separate stack sections visually a bit */
+    .stack-spacer {
+      height: 18px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 1200px) {
+      .layout { flex-direction: column; align-items: flex-start; }
+      .tall-stack { flex-direction: row; gap: 16px; }
+    }
+    @media (max-width: 850px) {
+      .board-grid {
+        grid-template-columns: repeat(3, 110px);
+        grid-template-rows: repeat(12, 88px);
+        min-width: 330px;
+      }
+      .tall-stack { flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .container { padding-bottom: 100px; }
+      .logo-section { top: 20px; }
+      .layout { top: 120px; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo section -->
+    <div class="logo-section">
+      <div class="logo-icon">
+        <!-- Graduation cap (simple SVG) -->
+        <svg width="70" height="38" viewBox="0 0 70 38"><polygon fill="#fff" stroke="#232323" stroke-width="3" points="35,6 68,18 35,30 2,18"></polygon><rect x="27" y="30" width="16" height="6" fill="#fff" stroke="#232323" stroke-width="2"/><circle cx="35" cy="36" r="2" fill="#ff6d2e" stroke="#232323" stroke-width="1.5"/></svg>
+      </div>
+      <div class="logo-hot">
+        HOT
+        <span class="orange">HOME OF TRAINING.COM</span>
+      </div>
+    </div>
+
+    <!-- Main layout (left: boards, right: stack) -->
+    <div class="layout">
+      <!-- Board/grid cards, approximate arrangement -->
+      <div class="board-grid">
+        <!-- row 1 -->
+        <div class="blank"></div>
+        <div class="grid-card logo-card" style="grid-column: 2/span 3;">LOGO</div>
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+        <div class="blank"></div>
+
+        <!-- row 2 -->
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+        
+        <!-- row 3 (spread cards to mimic screenshot, make some double-wide) -->
+        <div class="grid-card large"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card large"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+
+        <!-- row 4 -->
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+
+        <!-- row 5 -->
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+
+        <!-- row 6 (bottom) -->
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+        <div class="grid-card"></div>
+        <div class="blank"></div>
+      </div>
+
+      <!-- Right tall stack, sectioned for visual similarity -->
+      <div class="tall-stack">
+        <div class="stack-group">
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+          <div class="stack-spacer"></div>
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+        </div>
+        <div class="stack-spacer"></div>
+        <div class="stack-group">
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+        </div>
+        <div class="stack-spacer"></div>
+        <div class="stack-group">
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+          <div class="stack-card"></div>
+        </div>
+        <div class="stack-spacer"></div>
+        <div class="stack-group">
+          <div class="stack-card"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
